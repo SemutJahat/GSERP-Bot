@@ -9,7 +9,7 @@ const colors = {
     green: "\x1b[32m",
     yellow: "\x1b[33m",
     red: "\x1b[31m",
-    cyan: "\x1b[36m"  // Cyan color added
+    cyan: "\x1b[36m"
 };
 
 
@@ -46,7 +46,7 @@ async function getDomainRank({ page, data: { keyword, domain } }) {
 
         if (rankPosition !== -1) {
             overallRank = (pageIdx - 1) * 10 + rankPosition;
-            console.log(`${colors.green}Detected domain: ${domain} for keyword "${keyword}" on page ${pageIdx}, at position ${rankPosition} with overall rank ${overallRank}${colors.reset}`);
+            console.log(`${colors.green}[${domain}] KW: "${keyword}" [Page: ${pageIdx} | Pos ${rankPosition} ] | AllRank ${overallRank}${colors.reset}`);
             const [linkHandle] = await page.$x(`(//div[contains(@class, 'tF2Cxc')])[${rankPosition}]//a`);
 
             if (linkHandle) {
@@ -69,7 +69,7 @@ async function processCsvFile(filePath, maxConcurrency) {
         concurrency: Cluster.CONCURRENCY_CONTEXT,
         maxConcurrency: maxConcurrency,
         monitor: false,
-        puppeteerOptions: { headless: false }
+        puppeteerOptions: { headless: 'new', args: ['--no-sandbox'] }
     });
 
     let isFirstRow = true;  // Flag to check if it's the first row
