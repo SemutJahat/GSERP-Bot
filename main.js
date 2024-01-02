@@ -121,7 +121,7 @@ async function main() {
         const sessions = parseInt(await askQuestion("How many sessions will be run: "), 10);
 
         for (let i = 0; i < sessions; i++) {
-            console.log(`${colors.yellow}Starting session ${i + 1}${colors.reset}`);
+            console.log(`${colors.yellow}Starting session ${i + 1}/${sessions}${colors.reset}`);
             await processCsvFile(filePath, maxConcurrency); // Wait for the browser to close
             console.log(`${colors.yellow}Session ${i + 1} completed.${colors.reset}`);
         }
