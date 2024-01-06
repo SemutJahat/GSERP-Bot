@@ -69,7 +69,7 @@ async function processCsvFile(filePath, maxConcurrency) {
         concurrency: Cluster.CONCURRENCY_CONTEXT,
         maxConcurrency: maxConcurrency,
         monitor: false,
-        puppeteerOptions: { headless: 'new', args: ['--no-sandbox'] }
+        puppeteerOptions: { headless: false, args: ['--no-sandbox'] }
     });
 
     let isFirstRow = true;  // Flag to check if it's the first row
