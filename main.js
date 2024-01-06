@@ -112,9 +112,9 @@ function askQuestion(query) {
 
 async function main() {
     try {
-        console.log(`[!] ${colors.red}Please note! the success of the process is depend on useragent used!!!${colors.reset}`);
-        console.log(`[!] ${colors.red}Please note! the success of the process is depend on useragent used!!!${colors.reset}`);
-        console.log(`[!] ${colors.red}Please note! the success of the process is depend on useragent used!!!${colors.reset}`);
+        console.log(`[!] ${colors.red}Please note! the success of the process is depend on useragent used!!${colors.reset}`);
+        console.log(`[!] ${colors.red}Please note! the success of the process is depend on useragent used!!${colors.reset}`);
+        console.log(`[!] ${colors.red}Please note! the success of the process is depend on useragent used!!${colors.reset}`);
         await delay(2000);
         const filePath = await askQuestion("Enter the data filename: ");
         const maxConcurrency = parseInt(await askQuestion("Enter max concurrency for each session: "), 10);
